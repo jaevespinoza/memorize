@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Modal, Button, Form, Col, Container } from "react-bootstrap";
+import { setName } from "../../actions/GameReducer";
 
 const WelcomeModal = () => {
   const [nameInput, setNameInput] = useState("");
@@ -8,6 +9,13 @@ const WelcomeModal = () => {
   useEffect(() => {
     setShow(true);
   }, []);
+
+  const enterKeyHandler = (event: React.KeyboardEvent) => {
+    if (event.key === "Enter" && nameInput.length > 0) {
+      setName(nameInput);
+      event.preventDefault();
+    }
+  };
 
   return (
     <Modal
@@ -34,6 +42,7 @@ const WelcomeModal = () => {
               onChange={(event) => {
                 setNameInput(event.currentTarget.value);
               }}
+              onKeyDown={enterKeyHandler}
               type="text"
               placeholder="Write your name here"
             />
@@ -41,7 +50,13 @@ const WelcomeModal = () => {
         </Container>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="primary">Save name</Button>
+        <Button
+          variant="primary"
+          onClick={() => setName(nameInput)}
+          disabled={nameInput.length === 0}
+        >
+          Save name
+        </Button>
       </Modal.Footer>
     </Modal>
   );

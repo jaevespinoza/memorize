@@ -21,6 +21,7 @@ const gameSlice = createSlice({
     },
     setName: (state, action) => {
       state.name = action.payload;
+      localStorage.setItem("modyo-name", action.payload);
     },
   },
 });
