@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { IImageData } from "../reducer/AppActionsInterface";
+import { IImage, IImageData } from "../interfaces/AppActionsInterface";
 
 // Define a service using a base URL and expected endpoints
 export const imagesApi = createApi({
@@ -10,7 +10,9 @@ export const imagesApi = createApi({
       query: (per_page) =>
         `content/spaces/animals/types/game/entries?per_page=${per_page}`,
       transformResponse: (data: IImageData) => {
-        return data.entries;
+        return data.entries.map((item) => ({
+          ...item.fields.image,
+        })) as IImage[];
       },
     }),
   }),

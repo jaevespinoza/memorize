@@ -14,6 +14,6 @@ export const store = configureStore({
     getDefaultMiddleware().concat(imagesApi.middleware),
 });
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
+// Infer the RootState and AppDispatch types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
 export type ApplicationDispatch = typeof store.dispatch;

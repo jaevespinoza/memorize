@@ -1,11 +1,13 @@
-import { IImageField } from "../src/reducer/AppActionsInterface";
+import {
+  IDuplicatedImage,
+  IImage,
+} from "../src/interfaces/AppActionsInterface";
 
 /**
- * Function that allows to shuffle an array without creating a new one,
- * optimizing memory
+ * Function that allows to shuffle an array and then assigns ids to each element
  * @param array Array to be shuffled
  */
-const shuffleArray = (array: IImageField[]): IImageField[] => {
+const shuffleArrayAndAssignId = (array: IImage[]): IDuplicatedImage[] => {
   if (!array.length) return [];
   const newArray = [...array, ...array];
   let currentIndex = newArray.length;
@@ -20,7 +22,10 @@ const shuffleArray = (array: IImageField[]): IImageField[] => {
     newArray[randomIndex] = tempValue;
   }
 
-  return newArray;
+  return newArray.map((item, index) => ({
+    id: index,
+    ...item,
+  }));
 };
 
-export default shuffleArray;
+export default shuffleArrayAndAssignId;

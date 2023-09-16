@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { setName } from "../../actions/GameReducer";
 import "./styles.scss";
+import { useDispatch } from "react-redux";
 
 /**
  * Dialog that shows the input for the user's name.
@@ -10,11 +11,12 @@ import "./styles.scss";
 const WelcomeModal = () => {
   const [nameInput, setNameInput] = useState("");
   const [show, setShow] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     // If the name already exists in the local storage, the dialog should not appear
     const fullName = localStorage.getItem("full-name");
-    if (fullName) setName(fullName);
+    if (fullName) dispatch(setName(fullName));
     else setShow(true);
   }, []);
 
@@ -35,7 +37,7 @@ const WelcomeModal = () => {
    * storage, it should make the modal disappear, and also reset the input
    */
   const onSaveName = () => {
-    setName(nameInput);
+    dispatch(setName(nameInput));
     localStorage.setItem("full-name", nameInput);
     setShow(false);
     setNameInput("");

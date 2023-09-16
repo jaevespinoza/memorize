@@ -5,6 +5,13 @@ $header-height: 50px;
   height: 100%;
   &__header {
     height: $header-height;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__title {
+      color: #fff;
+      margin-bottom: 0;
+    }
   }
   &__body {
     justify-content: center;
@@ -15,10 +22,31 @@ $header-height: 50px;
   }
 }
 
-.card_content {
+.card-content {
+  height: 150px;
   &__image {
     object-fit: cover;
-    height: 150px;
+    height: 100px;
     width: auto;
+  }
+  &--unrevealed {
+    background: linear-gradient(180deg, #ffffff, #0074e4);
+    border: 2px solid #0074e4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__text {
+      color: #333; /* Dark gray text color */
+    }
+  }
+  &__body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+    &__title {
+      font-size: 12px;
+    }
   }
 }
