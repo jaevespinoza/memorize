@@ -1,12 +1,10 @@
-import { useGetImagesQuery } from "../../actions/GameApi";
-import { Container, Row, Spinner } from "react-bootstrap";
-import styles from "./styles.module.css";
+import { IImageData } from "../../reducer/AppActionsInterface";
 
-const GameBody = ({ data }) => {
+const GameBody = ({ data }: { data: IImageData }) => {
   return (
-    <Container className={styles.game_body}>
-      <Row>Memorize!</Row>
-    </Container>
+    <div className="container game-container">
+      {data.entries.map((item) => item.fields.image.uuid)}
+    </div>
   );
 };
 

@@ -20,7 +20,7 @@ export interface IAppActions extends AnyAction {
   /**
    * @param images Images retrieved by the Modyo API
    */
-  images?: any[];
+  images?: IImageData;
 }
 
 /**
@@ -30,5 +30,33 @@ export interface IAppState {
   name: string;
   errors: number;
   successes: number;
-  images: any[];
+  images: IImageData;
+}
+
+/**
+ * Interface that shows the data necessary to carry out the game
+ */
+export interface IImageData {
+  readonly entries: {
+    fields: {
+      image: {
+        /**
+         * Type of content associated with the image (typically jpeg)
+         */
+        content_type: string;
+        /**
+         * Title of the image
+         */
+        title: string;
+        /**
+         * Url/source of the image
+         */
+        url: string;
+        /**
+         * Unique id for the image
+         */
+        uuid: string;
+      };
+    };
+  }[];
 }
