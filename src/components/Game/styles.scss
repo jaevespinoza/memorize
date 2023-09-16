@@ -12,8 +12,18 @@ $header-height: 50px;
       color: #fff;
       margin-bottom: 0;
     }
+    &__counters {
+      display: flex;
+      &__success {
+        margin-right: 5px;
+      }
+      &__error {
+        margin-left: 5px;
+      }
+    }
   }
   &__body {
+    padding-top: 50px;
     justify-content: center;
     height: calc(100% - $header-height);
     width: 100%;
