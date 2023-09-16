@@ -1,15 +1,12 @@
 import { useGetImagesQuery } from "../../actions/GameApi";
-import { Spinner } from "react-bootstrap";
+import { Container, Row, Spinner } from "react-bootstrap";
+import styles from "./styles.module.css";
 
-const GameBody = () => {
-  const { data, error, isLoading } = useGetImagesQuery(20);
-
-  return isLoading ? (
-    <Spinner animation="border" role="status">
-      <span className="visually-hidden">Loading...</span>
-    </Spinner>
-  ) : (
-    <></>
+const GameBody = ({ data }) => {
+  return (
+    <Container className={styles.game_body}>
+      <Row>Memorize!</Row>
+    </Container>
   );
 };
 

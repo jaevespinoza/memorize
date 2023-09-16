@@ -1,0 +1,31 @@
+.modal {
+  transition: opacity 0.3s ease-in-out;
+  /* Additional modal styles go here */
+}
+
+.modal.fade.show {
+  opacity: 1;
+}
+
+.welcome-modal {
+  &__content {
+    height: 350px;
+  }
+  &__header {
+  }
+  &__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__footer {
+    height: 100px;
+    &__button {
+      &:disabled {
+        background-color: rgba(0, 0, 0, 0.09);
+        border: none;
+        color: #000;
+      }
+    }
+  }
+}

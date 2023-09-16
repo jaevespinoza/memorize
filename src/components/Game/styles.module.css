@@ -1,0 +1,16 @@
+.game_body {
+  color: red;
+  &__header {
+    color: red;
+  }
+  &__body {
+    height: 150px;
+  }
+  &__footer {
+    &__submit {
+      &--is-disabled {
+        color: gray;
+      }
+    }
+  }
+}
