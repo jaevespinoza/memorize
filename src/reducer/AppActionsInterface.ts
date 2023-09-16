@@ -34,29 +34,39 @@ export interface IAppState {
 }
 
 /**
- * Interface that shows the data necessary to carry out the game
+ * Interface that shows the data obtained by the API
  */
 export interface IImageData {
-  readonly entries: {
-    fields: {
-      image: {
-        /**
-         * Type of content associated with the image (typically jpeg)
-         */
-        content_type: string;
-        /**
-         * Title of the image
-         */
-        title: string;
-        /**
-         * Url/source of the image
-         */
-        url: string;
-        /**
-         * Unique id for the image
-         */
-        uuid: string;
-      };
-    };
-  }[];
+  readonly entries: IImageField[];
+}
+
+/**
+ * Interface that shows fields the API response has
+ */
+export interface IImageField {
+  fields: {
+    image: IImage;
+  };
+}
+
+/**
+ * Interface that shows the necesary data for the game
+ */
+export interface IImage {
+  /**
+   * Type of content associated with the image (typically jpeg)
+   */
+  content_type: string;
+  /**
+   * Title of the image
+   */
+  title: string;
+  /**
+   * Url/source of the image
+   */
+  url: string;
+  /**
+   * Unique id for the image
+   */
+  uuid: string;
 }

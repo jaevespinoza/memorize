@@ -1,4 +1,24 @@
+$header-height: 50px;
+
 .game-container {
   width: 100%;
   height: 100%;
+  &__header {
+    height: $header-height;
+  }
+  &__body {
+    justify-content: center;
+    height: calc(100% - $header-height);
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.card_content {
+  &__image {
+    object-fit: cover;
+    height: 150px;
+    width: auto;
+  }
 }

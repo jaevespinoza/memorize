@@ -1,21 +1,26 @@
+import { IImageField } from "../src/reducer/AppActionsInterface";
+
 /**
  * Function that allows to shuffle an array without creating a new one,
  * optimizing memory
  * @param array Array to be shuffled
  */
-const shuffleArray = (array) => {
+const shuffleArray = (array: IImageField[]): IImageField[] => {
   if (!array.length) return [];
-  let currentIndex = array.length;
+  const newArray = [...array, ...array];
+  let currentIndex = newArray.length;
   let randomIndex, tempValue;
 
   while (currentIndex !== 0) {
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
 
-    tempValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = tempValue;
+    tempValue = newArray[currentIndex];
+    newArray[currentIndex] = newArray[randomIndex];
+    newArray[randomIndex] = tempValue;
   }
+
+  return newArray;
 };
 
 export default shuffleArray;

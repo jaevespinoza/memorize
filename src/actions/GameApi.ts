@@ -10,7 +10,7 @@ export const imagesApi = createApi({
       query: (per_page) =>
         `content/spaces/animals/types/game/entries?per_page=${per_page}`,
       transformResponse: (data: IImageData) => {
-        return data;
+        return data.entries;
       },
     }),
   }),

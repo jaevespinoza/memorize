@@ -3,6 +3,7 @@ import WelcomeModal from "../WelcomeModal/WelcomeModal";
 import GameBody from "../Game/GameBody";
 import "./styles.scss";
 import Spinner from "./Spinner";
+import shuffleArray from "../../../utils/shuffle";
 
 /**
  * To ensure that the body only shows after the application's API has been called,
@@ -18,7 +19,7 @@ const ApplicationBody = () => {
   ) : (
     <div className="application-body">
       <WelcomeModal />
-      <GameBody data={data} />
+      <GameBody data={shuffleArray(data!)} />
     </div>
   );
 };
