@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../config/store";
-import { setMatchedPopup } from "../../actions/GameReducer";
+import { resetCards, setMatchedPopup } from "../../actions/GameReducer";
 
 const AlertComponent = () => {
   const matchSuccess = useSelector(
@@ -19,6 +19,7 @@ const AlertComponent = () => {
       // Automatically hide the alert after 2 seconds
       const timer = setTimeout(() => {
         dispatch(setMatchedPopup(false));
+        dispatch(resetCards());
       }, 2000);
 
       // Clean up the timer when the component unmounts or "show" prop changes

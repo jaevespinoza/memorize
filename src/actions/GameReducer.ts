@@ -71,6 +71,12 @@ const gameSlice = createSlice({
     setName: (state, action) => {
       state.name = action.payload;
     },
+    /**
+     * Resets the selected cards and then adds to the error
+     */
+    resetCards: (state) => {
+      state.selectedCards = [];
+    },
   },
 });
 
@@ -97,7 +103,7 @@ const checkSelected = (state: IGameState) => {
     successOnMatch(state);
   } else {
     state.matchedCard = false;
-    errorOnMatch(state);
+    state.errors += 1;
   }
 };
 
@@ -117,6 +123,7 @@ export const {
   setSelectedCards,
   setFoundCards,
   setMatchedCard,
+  resetCards,
   setMatchedPopup,
   setSuccess,
   setErrors,
