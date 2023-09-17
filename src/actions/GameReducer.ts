@@ -25,49 +25,92 @@ const gameSlice = createSlice({
     name: "",
   } as IGameState,
   reducers: {
+    /**
+     * Sets whether the cards match or not
+     */
     setMatchedCard: (state, action) => {
       state.matchedCard = action.payload;
     },
+    /**
+     * Sets whether the match alert should be shown or not
+     */
     setMatchedPopup: (state, action) => {
       state.matchPopup = action.payload;
     },
+    /**
+     * Sets the selected cards into the state and then checks
+     * whether they match or not
+     */
     setSelectedCards: (state, action) => {
       if (!state.selectedCards.some((item) => item.id === action.payload.id)) {
         state.selectedCards.push(action.payload);
         checkSelected(state);
       }
     },
+    /**
+     * Sets the found cards into the state so they are still shown
+     */
     setFoundCards: (state, action) => {
       state.foundCards.push(action.payload);
     },
+    /**
+     * Sets the number of successful matches
+     */
     setSuccess: (state, action) => {
       state.success = action.payload;
     },
+    /**
+     * Sets the number of wrong matches
+     */
     setErrors: (state, action) => {
       state.errors = action.payload;
     },
+    /**
+     * Sets the name of the user into the state
+     */
     setName: (state, action) => {
       state.name = action.payload;
     },
   },
 });
 
+/**
+ * Checks the cards that were selected.
+ * If the cards match, they are added to the pool of found cards and
+ * the success popup shows. If not, they are discarded and the
+ * error popup shows.
+ * @param state The Application state
+ * @returns The updated state with the amount of errors and successes updated
+ */
 const checkSelected = (state: IGameState) => {
+  // If the user hasn't selected more than two cards, we return
   if (state.selectedCards.length < 2) {
     return;
   }
+  // We compare the names of the cards
   const checkSelectedCards =
     state.selectedCards[0].name === state.selectedCards[1].name;
+  state.matchPopup = true;
+  // If they match, we set the matchedCard variable to true. If not, it's false.
   if (checkSelectedCards) {
-    console.log("hey!");
-    state.foundCards.push(state.selectedCards[0]);
-    state.foundCards.push(state.selectedCards[1]);
-    state.selectedCards = [];
-    state.success += 1;
+    state.matchedCard = true;
+    successOnMatch(state);
   } else {
-    state.selectedCards = [];
-    state.errors += 1;
+    state.matchedCard = false;
+    errorOnMatch(state);
   }
+};
+
+const successOnMatch = (state: IGameState) => {
+  state.foundCards.push(state.selectedCards[0]);
+  state.foundCards.push(state.selectedCards[1]);
+  state.selectedCards = [];
+  state.success += 1;
+};
+
+const errorOnMatch = (state: IGameState) => {
+  state.selectedCards = [];
+  state.errors += 1;
 };
 
 export const {

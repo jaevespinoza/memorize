@@ -44,8 +44,8 @@ const GameBody = ({ data }: { data: IDuplicatedImage[] }) => {
           </div>
         ))}
       </div>
-      <div className="container game-container__notification">
-        <SuccessAlert show={true} success={true} />
+      <div className="container notification">
+        <SuccessAlert />
       </div>
     </div>
   );

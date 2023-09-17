@@ -1,47 +1,53 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../config/store";
+import { setMatchedPopup } from "../../actions/GameReducer";
 
-const AlertComponent = ({ show, success }) => {
-  const [isVisible, setIsVisible] = useState(false);
+const AlertComponent = () => {
+  const matchSuccess = useSelector(
+    (state: RootState) => state.game.matchedCard
+  );
+
+  const dispatch = useDispatch();
+
+  const matchPopup = useSelector((state: RootState) => state.game.matchPopup);
 
   useEffect(() => {
     // Show the alert when the "show" prop is true
 
-    if (show) {
-      setIsVisible(true);
-
+    if (matchPopup) {
       // Automatically hide the alert after 2 seconds
       const timer = setTimeout(() => {
-        setIsVisible(false);
+        dispatch(setMatchedPopup(false));
       }, 2000);
 
       // Clean up the timer when the component unmounts or "show" prop changes
       return () => clearTimeout(timer);
-    } else {
-      setIsVisible(false);
     }
-  }, [show]);
+  }, [matchPopup]);
 
   const handleClose = () => {
-    setIsVisible(false);
+    dispatch(setMatchedPopup(false));
   };
 
   return (
-    true && (
+    matchPopup && (
       <div
         className={`alert ${
-          success ? "alert-success" : "alert-danger"
+          matchSuccess ? "alert-success" : "alert-danger"
         } alert-dismissible fade show position-fixed bottom-0 start-50 translate-middle-x`}
         role="alert"
-        style={{ width: 200 }}
       >
-        <div className="container game-container__notification__content">
-          {success ? (
+        <div className="container notification__content">
+          {matchSuccess ? (
             <>
-              <i className="bi bi-check-circle"></i> Success!
+              <i className="bi bi-check-circle"></i>{" "}
+              <b className="notification__content__text">Success!</b>
             </>
           ) : (
             <>
-              <i className="bi bi-exclamation-triangle"></i> Alert!
+              <i className="bi bi-exclamation-triangle"></i>
+              <b className="notification__content__text"> Error!</b>
             </>
           )}
           <button
