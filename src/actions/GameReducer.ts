@@ -5,6 +5,9 @@ import { ISelectedImage } from "../interfaces/AppActionsInterface";
 interface IGameState {
   selectedCards: ISelectedImage[];
   foundCards: ISelectedImage[];
+  matchPopup: boolean;
+  matchedCard: boolean;
+
   success: number;
   errors: number;
   name: string;
@@ -16,10 +19,18 @@ const gameSlice = createSlice({
     selectedCards: [] as ISelectedImage[],
     foundCards: [] as ISelectedImage[],
     success: 0,
+    matchPopup: false,
+    matchedCard: false,
     errors: 0,
     name: "",
   } as IGameState,
   reducers: {
+    setMatchedCard: (state, action) => {
+      state.matchedCard = action.payload;
+    },
+    setMatchedPopup: (state, action) => {
+      state.matchPopup = action.payload;
+    },
     setSelectedCards: (state, action) => {
       if (!state.selectedCards.some((item) => item.id === action.payload.id)) {
         state.selectedCards.push(action.payload);
@@ -62,6 +73,8 @@ const checkSelected = (state: IGameState) => {
 export const {
   setSelectedCards,
   setFoundCards,
+  setMatchedCard,
+  setMatchedPopup,
   setSuccess,
   setErrors,
   setName,

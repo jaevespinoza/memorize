@@ -30,6 +30,14 @@ $header-height: 50px;
     display: flex;
     flex-wrap: wrap;
   }
+  &__notification {
+    display: flex;
+    justify-content: center;
+    &__content {
+      display: flex;
+      justify-content: center;
+    }
+  }
 }
 
 .card-content {
@@ -42,6 +50,7 @@ $header-height: 50px;
   &--unrevealed {
     background: linear-gradient(180deg, #ffffff, #0074e4);
     border: 2px solid #0074e4;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;

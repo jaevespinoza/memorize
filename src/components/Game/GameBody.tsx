@@ -6,6 +6,8 @@ import {
 import GameCard from "./GameCard";
 import "./styles.scss";
 import { RootState } from "../../../config/store";
+import GameNav from "./GameNav";
+import SuccessAlert from "./SuccessAlert";
 
 const doesIdExistInArrays = (
   id: number,
@@ -24,29 +26,13 @@ const GameBody = ({ data }: { data: IDuplicatedImage[] }) => {
   );
 
   const foundCards = useSelector((state: RootState) => state.game.foundCards);
-  const successCount = useSelector((state: RootState) => state.game.success);
-  const errorCount = useSelector((state: RootState) => state.game.errors);
 
   return (
     <div className="game-container">
-      <nav className="navbar navbar-dark bg-primary game-container__header fixed-top">
-        <div className="container">
-          <div className="d-flex justify-content-center align-items-center flex-grow-1">
-            <h3 className="game-container__header__title mb-0">Memorize!</h3>
-          </div>
-          <div className="game-container__header__counters text-white">
-            <span className="game-container__header__counters__success">
-              Success: {successCount}
-            </span>
-            <span className="game-container__header__counters__error">
-              Errors: {errorCount}
-            </span>
-          </div>
-        </div>
-      </nav>
+      <GameNav />
       <div className="container game-container__body">
         {data.map((item) => (
-          <div className="col-lg-1 col-md-3 col-sm-6 col-3 m-1">
+          <div className="col-lg-1 col-md-2 col-sm-3 col-3 m-1" key={item.id}>
             <GameCard
               id={item.id}
               revealed={doesIdExistInArrays(item.id, selectedCards, foundCards)}
@@ -57,6 +43,9 @@ const GameBody = ({ data }: { data: IDuplicatedImage[] }) => {
             />
           </div>
         ))}
+      </div>
+      <div className="container game-container__notification">
+        <SuccessAlert show={true} success={true} />
       </div>
     </div>
   );
