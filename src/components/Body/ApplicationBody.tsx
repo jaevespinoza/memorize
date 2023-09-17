@@ -4,6 +4,10 @@ import GameBody from "../Game/GameBody";
 import "./styles.scss";
 import Spinner from "./Spinner";
 import shuffleArrayAndAssignId from "../../../utils/shuffle";
+import VictoryModal from "../VictoryModal/VictoryModal";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../config/store";
+import { useEffect, useState } from "react";
 
 /**
  * To ensure that the body only shows after the application's API has been called,
@@ -13,13 +17,25 @@ import shuffleArrayAndAssignId from "../../../utils/shuffle";
 const ApplicationBody = () => {
   // We call the Redux API created by the Redux toolkit. It works similar to react-query
   const { data, isLoading } = useGetImagesQuery(20);
+  const [shuffledData, setShuffledData] = useState(() =>
+    shuffleArrayAndAssignId([])
+  );
+
+  const successfulGames = useSelector(
+    (state: RootState) => state.game.successfulGames
+  );
+
+  useEffect(() => {
+    setShuffledData(shuffleArrayAndAssignId(data!));
+  }, [successfulGames, data]);
 
   return isLoading ? (
     <Spinner />
   ) : (
     <div className="application-body">
       <WelcomeModal />
-      <GameBody data={shuffleArrayAndAssignId(data!)} />
+      <VictoryModal numberToSuccess={data!.length} />
+      <GameBody data={shuffledData} />
     </div>
   );
 };

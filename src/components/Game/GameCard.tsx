@@ -1,6 +1,6 @@
 import { IDuplicatedImage } from "../../interfaces/AppActionsInterface";
 import "./styles.scss";
-import { checkSelected, setSelectedCards } from "../../actions/GameReducer";
+import { setSelectedCards } from "../../actions/GameReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../config/store";
 
@@ -29,7 +29,8 @@ const GameCard = ({
     <div
       className="card card-content"
       onClick={() => {
-        if (!matchPopup) dispatch(setSelectedCards({ id, name: title }));
+        if (!matchPopup && !revealed)
+          dispatch(setSelectedCards({ id, name: title }));
       }}
     >
       {!revealed ? (

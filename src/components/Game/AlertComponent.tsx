@@ -1,8 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../config/store";
 import { resetCards, setMatchedPopup } from "../../actions/GameReducer";
 
+/**
+ * Alert that shows whenever the user matches or fails to match the cards
+ * in the game.
+ */
 const AlertComponent = () => {
   const matchSuccess = useSelector(
     (state: RootState) => state.game.matchedCard
@@ -16,11 +20,11 @@ const AlertComponent = () => {
     // Show the alert when the "show" prop is true
 
     if (matchPopup) {
-      // Automatically hide the alert after 2 seconds
+      // Automatically hide the alert after 1 seconds
       const timer = setTimeout(() => {
         dispatch(setMatchedPopup(false));
         dispatch(resetCards());
-      }, 2000);
+      }, 1000);
 
       // Clean up the timer when the component unmounts or "show" prop changes
       return () => clearTimeout(timer);

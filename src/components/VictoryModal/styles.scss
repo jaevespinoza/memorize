@@ -1,0 +1,17 @@
+.victory-modal {
+  &__content {
+    height: 250px;
+  }
+  &__header {
+  }
+  &__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__footer {
+    height: 75px;
+    &__button {
+    }
+  }
+}

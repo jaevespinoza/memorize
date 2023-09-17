@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { setName } from "../../actions/GameReducer";
 import "./styles.scss";
 import { useDispatch } from "react-redux";
+import WelcomeModalBody from "./WelcomeModalBody";
+import WelcomeModalFooter from "./WelcomeModalFooter";
 
 /**
  * Dialog that shows the input for the user's name.
@@ -19,18 +21,6 @@ const WelcomeModal = () => {
     if (fullName) dispatch(setName(fullName));
     else setShow(true);
   }, []);
-
-  /**
-   * Upon pressing the "Enter" key, the name should be saved.
-   * It also makes sure that the name input exists
-   * @param event Key press event
-   */
-  const enterKeyHandler = (event: React.KeyboardEvent) => {
-    if (event.key === "Enter" && nameInput.length > 0) {
-      onSaveName();
-      event.preventDefault();
-    }
-  };
 
   /**
    * Upon clicking the button, the name should be saved on the state and local
@@ -59,37 +49,13 @@ const WelcomeModal = () => {
               <h5 className="modal-title">Welcome to Memorize!</h5>
             </div>
             <div className="modal-body welcome-modal__body">
-              <p>
-                To ensure a better experience, please write your name in the
-                field below:
-              </p>
-              <form>
-                <div className="mb-3">
-                  <label htmlFor="fullName" className="form-label">
-                    Full name
-                  </label>
-                  <input
-                    type="text"
-                    onChange={(event) =>
-                      setNameInput(event.currentTarget.value)
-                    }
-                    onKeyDown={enterKeyHandler}
-                    className="form-control"
-                    id="fullName"
-                    aria-describedby="emailHelp"
-                  />
-                </div>
-              </form>
+              <WelcomeModalBody {...{ setNameInput, nameInput, onSaveName }} />
             </div>
             <div className="modal-footer welcome-modal__footer">
-              <button
-                type="button"
-                className="btn btn-primary welcome-modal__footer__button"
-                disabled={nameInput.length === 0}
-                onClick={onSaveName}
-              >
-                Save name
-              </button>
+              <WelcomeModalFooter
+                enabledButton={nameInput.length > 0}
+                {...{ onSaveName }}
+              />
             </div>
           </div>
         </div>

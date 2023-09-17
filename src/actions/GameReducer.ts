@@ -7,7 +7,7 @@ interface IGameState {
   foundCards: ISelectedImage[];
   matchPopup: boolean;
   matchedCard: boolean;
-
+  successfulGames: number;
   success: number;
   errors: number;
   name: string;
@@ -23,6 +23,7 @@ const gameSlice = createSlice({
     matchedCard: false,
     errors: 0,
     name: "",
+    successfulGames: 0,
   } as IGameState,
   reducers: {
     /**
@@ -77,6 +78,13 @@ const gameSlice = createSlice({
     resetCards: (state) => {
       state.selectedCards = [];
     },
+    resetGame: (state) => {
+      state.foundCards = [];
+      state.selectedCards = [];
+      state.success = 0;
+      state.errors = 0;
+      state.successfulGames += 1;
+    },
   },
 });
 
@@ -114,16 +122,12 @@ const successOnMatch = (state: IGameState) => {
   state.success += 1;
 };
 
-const errorOnMatch = (state: IGameState) => {
-  state.selectedCards = [];
-  state.errors += 1;
-};
-
 export const {
   setSelectedCards,
   setFoundCards,
   setMatchedCard,
   resetCards,
+  resetGame,
   setMatchedPopup,
   setSuccess,
   setErrors,

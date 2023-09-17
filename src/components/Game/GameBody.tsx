@@ -7,8 +7,15 @@ import GameCard from "./GameCard";
 import "./styles.scss";
 import { RootState } from "../../../config/store";
 import GameNav from "./GameNav";
-import SuccessAlert from "./SuccessAlert";
+import SuccessAlert from "./AlertComponent";
 
+/**
+ * Function that determines whether an id exists on either the selected or found list of cards
+ * @param id Id to find
+ * @param selected Selected cards at the moment
+ * @param found Found cards at the moment
+ * @returns Boolean that says whether the id exists
+ */
 const doesIdExistInArrays = (
   id: number,
   selected: ISelectedImage[],
@@ -20,6 +27,11 @@ const doesIdExistInArrays = (
   );
 };
 
+/**
+ * Component that renders the various animal cards responsively to
+ * play the game.
+ * @param data Array of shuffled and repeated cards to play the game
+ */
 const GameBody = ({ data }: { data: IDuplicatedImage[] }) => {
   const selectedCards = useSelector(
     (state: RootState) => state.game.selectedCards
