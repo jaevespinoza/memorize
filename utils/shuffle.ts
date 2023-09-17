@@ -9,7 +9,7 @@ import {
  */
 const shuffleArrayAndAssignId = (array: IImage[]): IDuplicatedImage[] => {
   // If the array is empty, we return an empty array
-  if (!array.length) return [];
+  if (!array) return [];
   // We create a new array that duplicates the amount of content in it
   const newArray = [...array, ...array];
   let currentIndex = newArray.length;

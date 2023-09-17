@@ -25,9 +25,20 @@ const GameCard = ({
 }: IGameCard) => {
   const dispatch = useDispatch();
   const matchPopup = useSelector((state: RootState) => state.game.matchPopup);
+
+  const enterKeyHandler = (event: React.KeyboardEvent) => {
+    console.log(event.key);
+    if (event.key === "Enter" || event.key === " ") {
+      dispatch(setSelectedCards({ id, name: title }));
+      event.preventDefault();
+    }
+  };
+
   return (
     <div
       className="card card-content"
+      tabIndex={id + 1}
+      onKeyDown={enterKeyHandler}
       onClick={() => {
         if (!matchPopup && !revealed)
           dispatch(setSelectedCards({ id, name: title }));
