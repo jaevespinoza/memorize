@@ -15,14 +15,7 @@ interface IGameCard extends IDuplicatedImage {
  * @param title Name associated with the image
  * @param content_type Content type of the image
  */
-const GameCard = ({
-  url,
-  uuid,
-  title,
-  content_type,
-  revealed,
-  id,
-}: IGameCard) => {
+const GameCard = ({ url, title, content_type, revealed, id }: IGameCard) => {
   const dispatch = useDispatch();
   const matchPopup = useSelector((state: RootState) => state.game.matchPopup);
 

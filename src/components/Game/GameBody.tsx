@@ -40,8 +40,7 @@ const GameBody = ({ data }: { data: IDuplicatedImage[] }) => {
 
   const foundCards = useSelector((state: RootState) => state.game.foundCards);
 
-  const cards = useRef([]);
-  const gameContainer = useRef(null);
+  const cards = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
     // Get all the cards and convert them to an array
@@ -53,8 +52,7 @@ const GameBody = ({ data }: { data: IDuplicatedImage[] }) => {
 
   console.log(cards);
 
-  const handleKeyDown = (e) => {
-    console.log(e);
+  const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "ArrowRight") {
       e.preventDefault();
       focusNextCard();
