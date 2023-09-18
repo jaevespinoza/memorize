@@ -2,7 +2,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ISelectedImage } from "../interfaces/AppActionsInterface";
 
-interface IGameState {
+export interface IGameState {
   selectedCards: ISelectedImage[];
   foundCards: ISelectedImage[];
   matchPopup: boolean;
