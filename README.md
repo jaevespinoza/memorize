@@ -18,6 +18,12 @@ To install all the dependencies in the node_modules folder, and then:
 
 to run the application. The port used will be http://localhost:5173/.
 
+To run the tests, use the command:
+
+`yarn test`
+
+and it will run the tests in Vitest.
+
 ## Libraries used in the application
 
 One of the main libraries that was used for state handling was [@reduxjs/toolkit](https://redux-toolkit.js.org/). This helped with handling the various parts of the application, such as the success and error count, as well as obtaining the images thanks to its `createApi` method.
