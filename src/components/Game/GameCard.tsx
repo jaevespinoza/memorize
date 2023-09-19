@@ -20,7 +20,6 @@ const GameCard = ({ url, title, content_type, revealed, id }: IGameCard) => {
   const matchPopup = useSelector((state: RootState) => state.game.matchPopup);
 
   const enterKeyHandler = (event: React.KeyboardEvent) => {
-    console.log(event.key);
     if (event.key === "Enter" || event.key === " ") {
       dispatch(setSelectedCards({ id, name: title }));
       event.preventDefault();
@@ -31,6 +30,7 @@ const GameCard = ({ url, title, content_type, revealed, id }: IGameCard) => {
     <div
       className="card card-content"
       tabIndex={id + 1}
+      data-testid="card-content"
       onKeyDown={enterKeyHandler}
       onClick={() => {
         if (!matchPopup && !revealed)
@@ -38,7 +38,10 @@ const GameCard = ({ url, title, content_type, revealed, id }: IGameCard) => {
       }}
     >
       {!revealed ? (
-        <div className="card-content--unrevealed card-content__image">
+        <div
+          className="card-content--unrevealed card-content__image"
+          data-testid="unrevealed-card"
+        >
           <h1 className="class-content--unrevealed__text">?</h1>
         </div>
       ) : (
@@ -46,6 +49,7 @@ const GameCard = ({ url, title, content_type, revealed, id }: IGameCard) => {
           <img
             src={url}
             className="card-img-top card-content__image"
+            data-testid="revealed-image"
             content={content_type}
             alt={title}
           />

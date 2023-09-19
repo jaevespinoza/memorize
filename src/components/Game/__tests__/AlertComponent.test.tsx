@@ -1,6 +1,6 @@
 import { act, render, screen } from "@testing-library/react";
 
-import AlertComponent from "./AlertComponent";
+import AlertComponent from "../AlertComponent";
 import { beforeEach, describe, expect, test } from "vitest";
 import { configureStore } from "@reduxjs/toolkit";
 import { ToolkitStore } from "@reduxjs/toolkit/dist/configureStore";
@@ -8,7 +8,7 @@ import GameReducer, {
   IGameState,
   setMatchedCard,
   setMatchedPopup,
-} from "../../actions/GameReducer";
+} from "../../../actions/GameReducer";
 import { Provider } from "react-redux";
 
 describe("Alert Component", () => {

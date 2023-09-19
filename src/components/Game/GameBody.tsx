@@ -46,11 +46,8 @@ const GameBody = ({ data }: { data: IDuplicatedImage[] }) => {
     // Get all the cards and convert them to an array
     if (cards) {
       cards.current = Array.from(document.querySelectorAll(".card-content"));
-      console.log(cards);
     }
   }, [cards]);
-
-  console.log(cards);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "ArrowRight") {
@@ -82,10 +79,15 @@ const GameBody = ({ data }: { data: IDuplicatedImage[] }) => {
   return (
     <div className="game-container">
       <GameNav />
-      <div className="container game-container__body" onKeyDown={handleKeyDown}>
+      <div
+        className="container game-container__body"
+        onKeyDown={handleKeyDown}
+        data-testid="game-container-body"
+      >
         {data.map((item) => (
           <div
             className="col-lg-1 col-md-2 col-sm-3 col-3 m-1 game-container__card"
+            data-testid="game-container-card"
             key={item.id}
           >
             <GameCard

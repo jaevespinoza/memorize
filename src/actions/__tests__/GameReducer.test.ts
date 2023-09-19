@@ -11,7 +11,7 @@ import GameReducer, {
   setErrors,
   setName,
   IGameState,
-} from "./GameReducer";
+} from "../GameReducer";
 import { ToolkitStore } from "@reduxjs/toolkit/dist/configureStore";
 
 describe("Game Reducer actions", () => {
