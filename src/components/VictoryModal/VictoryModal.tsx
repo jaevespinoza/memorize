@@ -3,6 +3,7 @@ import "./styles.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../config/store";
 import { resetGame } from "../../actions/GameReducer";
+import { useTranslation } from "react-i18next";
 
 interface IVictoryModal {
   numberToSuccess: number;
@@ -20,6 +21,7 @@ const VictoryModal = ({ numberToSuccess }: IVictoryModal) => {
   const dispatch = useDispatch();
   const successCount = useSelector((state: RootState) => state.game.success);
 
+  const { t } = useTranslation("game");
   /**
    * Hook that is called only when the number of successes/matches equals
    * the number of unique cards there are.
@@ -49,13 +51,10 @@ const VictoryModal = ({ numberToSuccess }: IVictoryModal) => {
         <div className="modal-dialog ">
           <div className="modal-content victory-modal__content">
             <div className="modal-header">
-              <h5 className="modal-title">Congratulations, {name}!</h5>
+              <h5 className="modal-title">{t("victory.title", { name })}</h5>
             </div>
             <div className="modal-body victory-modal__body">
-              <p>
-                You won the game! You can restart it by clicking the button
-                below.
-              </p>
+              <p>{t("victory.description")}</p>
             </div>
             <div className="modal-footer victory-modal__footer">
               <button
@@ -63,7 +62,7 @@ const VictoryModal = ({ numberToSuccess }: IVictoryModal) => {
                 type="button"
                 className="btn btn-primary victory-modal__footer__button"
               >
-                Restart
+                {t("victory.restart")}
               </button>
             </div>
           </div>

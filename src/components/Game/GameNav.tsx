@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import "./styles.scss";
 import { RootState } from "../../../config/store";
+import { useTranslation } from "react-i18next";
 
 /**
  * Nav of the site that shows the name of the game, and the
@@ -8,6 +9,7 @@ import { RootState } from "../../../config/store";
  * It uses selectors to access the state and show the values.
  */
 const GameNav = () => {
+  const { t } = useTranslation("game");
   const successCount = useSelector((state: RootState) => state.game.success);
   const errorCount = useSelector((state: RootState) => state.game.errors);
   return (
@@ -18,7 +20,7 @@ const GameNav = () => {
             className="game-container__header__title mb-0"
             data-testid="header-title"
           >
-            Memorize!
+            {t("nav.title")}
           </h3>
         </div>
         <div className="game-container__header__counters text-white">
@@ -26,13 +28,13 @@ const GameNav = () => {
             className="badge badge-pill badge-success"
             data-testid="success-count"
           >
-            Success: {successCount}
+            {t("nav.success", { count: successCount })}
           </span>
           <span
             className="badge badge-pill badge-danger"
             data-testid="error-count"
           >
-            Errors: {errorCount}
+            {t("nav.error", { count: errorCount })}
           </span>
         </div>
       </div>

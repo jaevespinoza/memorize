@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import "./styles.scss";
 
 interface IWelcomeModalFooter {
@@ -14,14 +15,16 @@ const WelcomeModalFooter = ({
   onSaveName,
   enabledButton,
 }: IWelcomeModalFooter) => {
+  const { t } = useTranslation("game");
   return (
     <button
       type="button"
       className="btn btn-primary welcome-modal__footer__button"
       disabled={!enabledButton}
       onClick={onSaveName}
+      data-testid="save-button"
     >
-      Save name
+      {t("welcome.save")}
     </button>
   );
 };

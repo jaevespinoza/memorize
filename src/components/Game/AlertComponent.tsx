@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../config/store";
 import { resetCards, setMatchedPopup } from "../../actions/GameReducer";
+import { useTranslation } from "react-i18next";
 
 /**
  * Alert that shows whenever the user matches or fails to match the cards
@@ -11,6 +12,8 @@ const AlertComponent = () => {
   const matchSuccess = useSelector(
     (state: RootState) => state.game.matchedCard
   );
+
+  const { t } = useTranslation("game");
 
   const dispatch = useDispatch();
 
@@ -55,7 +58,7 @@ const AlertComponent = () => {
             }`}
           ></i>{" "}
           <b className="notification__content__text" data-testid="message">
-            {matchSuccess ? "Success!" : "Error!"}
+            {matchSuccess ? t("alert.success") : t("alert.error")}
           </b>
           <button
             type="button"

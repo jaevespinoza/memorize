@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 interface IWelcomeModalBody {
   onSaveName: () => void;
   nameInput: string;
@@ -16,6 +18,7 @@ const WelcomeModalBody = ({
   nameInput,
   setNameInput,
 }: IWelcomeModalBody) => {
+  const { t } = useTranslation("game");
   /**
    * Upon pressing the "Enter" key, the name should be saved.
    * It also makes sure that the name input exists
@@ -30,14 +33,11 @@ const WelcomeModalBody = ({
 
   return (
     <>
-      <p>
-        To ensure a better experience, please write your name in the field
-        below:
-      </p>
+      <p>{t("welcome.description")}</p>
       <form>
         <div className="mb-3">
           <label htmlFor="fullName" className="form-label">
-            Full name
+            {t("welcome.name")}
           </label>
           <input
             type="text"

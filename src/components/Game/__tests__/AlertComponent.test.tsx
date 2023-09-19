@@ -10,6 +10,8 @@ import GameReducer, {
   setMatchedPopup,
 } from "../../../actions/GameReducer";
 import { Provider } from "react-redux";
+import { I18nextProvider } from "react-i18next";
+import i18n from "../../../i18n/i18n";
 
 describe("Alert Component", () => {
   let store: ToolkitStore<{ game: IGameState }>;
@@ -33,7 +35,9 @@ describe("Alert Component", () => {
 
     render(
       <Provider store={store}>
-        <AlertComponent />
+        <I18nextProvider i18n={i18n}>
+          <AlertComponent />
+        </I18nextProvider>
       </Provider>
     );
 
@@ -46,7 +50,9 @@ describe("Alert Component", () => {
 
     render(
       <Provider store={store}>
-        <AlertComponent />
+        <I18nextProvider i18n={i18n}>
+          <AlertComponent />
+        </I18nextProvider>
       </Provider>
     );
 

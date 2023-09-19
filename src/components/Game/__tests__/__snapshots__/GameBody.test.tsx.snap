@@ -1,10 +1,61 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Game Nav > Renders properly 1`] = `
+exports[`Game Body > renders properly 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <div
+        class="game-container"
+      >
+        <nav
+          class="navbar navbar-dark bg-primary game-container__header fixed-top"
+        >
+          <div
+            class="container"
+          >
+            <div
+              class="d-flex justify-content-center align-items-center flex-grow-1"
+            >
+              <h3
+                class="game-container__header__title mb-0"
+                data-testid="header-title"
+              >
+                nav.title
+              </h3>
+            </div>
+            <div
+              class="game-container__header__counters text-white"
+            >
+              <span
+                class="badge badge-pill badge-success"
+                data-testid="success-count"
+              >
+                nav.success
+              </span>
+              <span
+                class="badge badge-pill badge-danger"
+                data-testid="error-count"
+              >
+                nav.error
+              </span>
+            </div>
+          </div>
+        </nav>
+        <div
+          class="container game-container__body"
+          data-testid="game-container-body"
+        />
+        <div
+          class="container notification"
+        />
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="game-container"
+    >
       <nav
         class="navbar navbar-dark bg-primary game-container__header fixed-top"
       >
@@ -18,7 +69,7 @@ exports[`Game Nav > Renders properly 1`] = `
               class="game-container__header__title mb-0"
               data-testid="header-title"
             >
-              Memorize!
+              nav.title
             </h3>
           </div>
           <div
@@ -28,54 +79,25 @@ exports[`Game Nav > Renders properly 1`] = `
               class="badge badge-pill badge-success"
               data-testid="success-count"
             >
-              Success: 0
+              nav.success
             </span>
             <span
               class="badge badge-pill badge-danger"
               data-testid="error-count"
             >
-              Errors: 0
+              nav.error
             </span>
           </div>
         </div>
       </nav>
-    </div>
-  </body>,
-  "container": <div>
-    <nav
-      class="navbar navbar-dark bg-primary game-container__header fixed-top"
-    >
       <div
-        class="container"
-      >
-        <div
-          class="d-flex justify-content-center align-items-center flex-grow-1"
-        >
-          <h3
-            class="game-container__header__title mb-0"
-            data-testid="header-title"
-          >
-            Memorize!
-          </h3>
-        </div>
-        <div
-          class="game-container__header__counters text-white"
-        >
-          <span
-            class="badge badge-pill badge-success"
-            data-testid="success-count"
-          >
-            Success: 0
-          </span>
-          <span
-            class="badge badge-pill badge-danger"
-            data-testid="error-count"
-          >
-            Errors: 0
-          </span>
-        </div>
-      </div>
-    </nav>
+        class="container game-container__body"
+        data-testid="game-container-body"
+      />
+      <div
+        class="container notification"
+      />
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
