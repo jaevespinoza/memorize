@@ -14,13 +14,24 @@ const GameNav = () => {
     <nav className="navbar navbar-dark bg-primary game-container__header fixed-top">
       <div className="container">
         <div className="d-flex justify-content-center align-items-center flex-grow-1">
-          <h3 className="game-container__header__title mb-0">Memorize!</h3>
+          <h3
+            className="game-container__header__title mb-0"
+            data-testid="header-title"
+          >
+            Memorize!
+          </h3>
         </div>
         <div className="game-container__header__counters text-white">
-          <span className="badge badge-pill badge-success">
+          <span
+            className="badge badge-pill badge-success"
+            data-testid="success-count"
+          >
             Success: {successCount}
           </span>
-          <span className="badge badge-pill badge-danger">
+          <span
+            className="badge badge-pill badge-danger"
+            data-testid="error-count"
+          >
             Errors: {errorCount}
           </span>
         </div>

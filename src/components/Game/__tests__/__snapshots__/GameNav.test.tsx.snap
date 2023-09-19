@@ -1,45 +1,85 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Game Card > renders properly 1`] = `
+exports[`Game Nav > Renders properly 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="card card-content"
-        data-testid="card-content"
-        tabindex="2"
+      <nav
+        class="navbar navbar-dark bg-primary game-container__header fixed-top"
       >
         <div
-          class="card-content--unrevealed card-content__image"
-          data-testid="unrevealed-card"
+          class="container"
         >
-          <h1
-            class="class-content--unrevealed__text"
+          <div
+            class="d-flex justify-content-center align-items-center flex-grow-1"
           >
-            ?
-          </h1>
+            <h3
+              class="game-container__header__title mb-0"
+              data-testid="header-title"
+            >
+              Memorize!
+            </h3>
+          </div>
+          <div
+            class="game-container__header__counters text-white"
+          >
+            <span
+              class="badge badge-pill badge-success"
+              data-testid="success-count"
+            >
+              Success: 
+              0
+            </span>
+            <span
+              class="badge badge-pill badge-danger"
+              data-testid="error-count"
+            >
+              Errors: 
+              0
+            </span>
+          </div>
         </div>
-      </div>
+      </nav>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="card card-content"
-      data-testid="card-content"
-      tabindex="2"
+    <nav
+      class="navbar navbar-dark bg-primary game-container__header fixed-top"
     >
       <div
-        class="card-content--unrevealed card-content__image"
-        data-testid="unrevealed-card"
+        class="container"
       >
-        <h1
-          class="class-content--unrevealed__text"
+        <div
+          class="d-flex justify-content-center align-items-center flex-grow-1"
         >
-          ?
-        </h1>
+          <h3
+            class="game-container__header__title mb-0"
+            data-testid="header-title"
+          >
+            Memorize!
+          </h3>
+        </div>
+        <div
+          class="game-container__header__counters text-white"
+        >
+          <span
+            class="badge badge-pill badge-success"
+            data-testid="success-count"
+          >
+            Success: 
+            0
+          </span>
+          <span
+            class="badge badge-pill badge-danger"
+            data-testid="error-count"
+          >
+            Errors: 
+            0
+          </span>
+        </div>
       </div>
-    </div>
+    </nav>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
