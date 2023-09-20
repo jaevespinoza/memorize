@@ -28,9 +28,13 @@ and it will run the tests in Vitest.
 
 One of the main libraries that was used for state handling was [@reduxjs/toolkit](https://redux-toolkit.js.org/). This helped with handling the various parts of the application, such as the success and error count, as well as obtaining the images thanks to its `createApi` method.
 
-Another library that was used for accessibility was i18n/react-i18n. It detects the browser's language and sets it to either English or Spanish.
-
 Lastly, for responsiveness, Bootstrap was used. The application was tested in the [Google Chrome Tool Window for Mobile Design](https://i.imgur.com/K2y5lST.png)
+
+## Accesibility
+
+To add accessibility, you can move through the cards with the tab key, and also reveal the focused card with either the Enter or Space key.
+
+Another library that was used for accessibility was i18n/react-i18n. It detects the browser's language and sets it to either English or Spanish.
 
 ## Links
 
