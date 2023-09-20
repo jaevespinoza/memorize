@@ -37,3 +37,9 @@ Lastly, for responsiveness, Bootstrap was used. The application was tested in th
 - [React](https://react.dev/)
 - [Vite](https://vitejs.dev/)
 - [Yarn](https://yarnpkg.com/)
+
+## Deploy
+
+The application was actually deployed in Netlify, setting up a small server where the page is now hosted:
+
+[Link](https://stellar-travesseiro-bbf442.netlify.app/)
