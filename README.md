@@ -36,6 +36,8 @@ To add accessibility, you can move through the cards with the tab key, and also 
 
 Another library that was used for accessibility was i18n/react-i18n. It detects the browser's language and sets it to either English or Spanish.
 
+For future work, what could be added is different themes (dark or light) or navigation with arrow keys.
+
 ## Links
 
 - [React](https://react.dev/)
