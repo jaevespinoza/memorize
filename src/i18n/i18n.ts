@@ -2,6 +2,7 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import game from "./en/game.json";
+import gameEs from "./es/game.json";
 
 i18n
   // detect user language
@@ -19,6 +20,9 @@ i18n
     resources: {
       en: {
         game,
+      },
+      es: {
+        game: gameEs,
       },
     },
   });

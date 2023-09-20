@@ -1,0 +1,22 @@
+{
+  "alert": {
+    "success": "¡Éxito!",
+    "error": "¡Error!"
+  },
+  "nav": {
+    "title": "¡Memoriza!",
+    "success": "Éxito: {{count}}",
+    "error": "Errores: {{count}}"
+  },
+  "victory": {
+    "title": "¡Felicidades, {{name}}!",
+    "description": "¡Ganaste el juego! Puedes reiniciarlo haciendo clic en el botón de abajo.",
+    "restart": "Reiniciar"
+  },
+  "welcome": {
+    "title": "¡Bienvenido a Memoriza!",
+    "description": "Para asegurar una mejor experiencia, por favor escribe tu nombre completo en el campo de abajo:",
+    "name": "Nombre completo",
+    "save": "Guardar nombre"
+  }
+}
