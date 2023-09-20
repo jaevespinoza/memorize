@@ -15,7 +15,7 @@ exports[`Game Card > renders properly 1`] = `
           data-testid="unrevealed-card"
         >
           <h1
-            class="class-content--unrevealed__text"
+            class="card-content--unrevealed__text"
           >
             ?
           </h1>
@@ -34,7 +34,7 @@ exports[`Game Card > renders properly 1`] = `
         data-testid="unrevealed-card"
       >
         <h1
-          class="class-content--unrevealed__text"
+          class="card-content--unrevealed__text"
         >
           ?
         </h1>

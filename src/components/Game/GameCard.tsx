@@ -42,7 +42,7 @@ const GameCard = ({ url, title, content_type, revealed, id }: IGameCard) => {
           className="card-content--unrevealed card-content__image"
           data-testid="unrevealed-card"
         >
-          <h1 className="class-content--unrevealed__text">?</h1>
+          <h1 className="card-content--unrevealed__text">?</h1>
         </div>
       ) : (
         <>

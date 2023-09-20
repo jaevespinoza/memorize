@@ -86,7 +86,7 @@ const GameBody = ({ data }: { data: IDuplicatedImage[] }) => {
       >
         {data.map((item) => (
           <div
-            className="col-lg-1 col-md-2 col-sm-3 col-3 m-1 game-container__card"
+            className="col-lg-1 col-md-2 col-sm-3 col-3 m-2 game-container__card"
             data-testid="game-container-card"
             key={item.id}
           >
