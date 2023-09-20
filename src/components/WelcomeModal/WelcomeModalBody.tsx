@@ -34,13 +34,16 @@ const WelcomeModalBody = ({
   return (
     <>
       <p>{t("welcome.description")}</p>
-      <form>
+      <form aria-label="form" data-testid="form-input">
         <div className="mb-3">
           <label htmlFor="fullName" className="form-label">
             {t("welcome.name")}
           </label>
           <input
+            data-testid="name-input"
             type="text"
+            aria-label="data-input"
+            name="fullName"
             onChange={(event) => setNameInput(event.currentTarget.value)}
             onKeyDown={enterKeyHandler}
             className="form-control"
