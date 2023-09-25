@@ -6,7 +6,13 @@ This is a React project that shows a board game of Memorize. One types their nam
 
 To develop this project, HTML, SCSS/SASS and Typescript were used. The framework used to create the components was React, and Bootstrap was used to help with the styling and the various responsive components. It also uses Vite to bundle and build the application more efficiently and faster.
 
+For requirements, Node v18.17.1 is needed, as well as Vite.
+
 ## How to run locally
+
+Clone the repo into your folder:
+
+`git clone https://github.com/jaevespinoza/memorize.git`
 
 Simply use the command:
 
